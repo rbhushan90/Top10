@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'capcake'
 
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "top10"
+set :repository,  "git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
