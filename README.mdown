@@ -1,0 +1,6 @@
+[![](http://stillmaintained.com/primeminister/top10.png)](http://stillmaintained.com/primeminister/top10)
+
+##Description
+CakePHP 1.3.x
+App to get work with top 10 lists created by users.
+Many features to come with live voting and private lists
