@@ -2,15 +2,37 @@ require 'rubygems'
 require 'capcake'
 
 set :application, "top10"
-set :repository,  "git"
+set :default_stage, "dev"
+set :use_sudo, false
+set :keep_releases, 5
 
-set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm, :git
+set :scm_username, 'primeinister@mowd.nl'
+set :repository,  "git@github.com:primeminister/Top10.git"
+set :branch, "master"
+set :deploy_via, :remote_cache
+ssh_options[:forward_agent] = true
 
-role :web, "pooh.febe.nl"                          # Your HTTP server, Apache/etc
-role :app, "top10"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :domain, 'pooh.febe.nl'
+set :user, 'charlie'
+set :change_ownership, false
+set :deploy_to, "/home/charlie/sites/www/automagisch.nl"
+set :db_user, "charlie"
+set :db_pass, "My$ql"
+set :db_name, "charlie_top10"
+set :db_host, "localhost"
+set :db_adapter, "mysql"
+set :core_debug_level, 0
+set :core_disable_cache, false
+
+set :cake_branch, "1.3.6"
+set :branch, "tag"
+
+role :web, "#{domain}"                          # Your HTTP server, Apache/etc
+role :app, "#{domain}"                          # This may be the same as your `Web` server
+role :db,  "#{domain}", :primary => true # This is where Rails migrations will run
+
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
